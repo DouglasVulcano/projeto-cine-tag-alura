@@ -20,8 +20,8 @@ export default function Home() {
           <Card
             key={video.id}
             id={video.id}
-            title={video.titulo}
-            thumb={video.capa}
+            title={video.title}
+            thumb={video.thumb}
           />
         ))}
       </section>

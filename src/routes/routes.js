@@ -10,22 +10,17 @@ import Player from "pages/Player";
 // layouts
 import MainLayout from "layouts/MainLayout";
 
-// providers
-import FavoritesProvider from "contexts/FavoritesContext";
-
 export default function Router() {
   return (
     <BrowserRouter>
-      <MainLayout>
-        <FavoritesProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/:id" element={<Player />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </FavoritesProvider>
-      </MainLayout>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="favorites" element={<Favorites />} />
+          <Route path=":id" element={<Player />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

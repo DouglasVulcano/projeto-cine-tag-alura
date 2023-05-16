@@ -3,11 +3,12 @@ import styles from "./Favorites.module.css";
 import Banner from "components/Banner";
 import Title from "components/Title";
 
-import videos from "json/db.json";
-
 import React from "react";
+import { useFavoritesContext } from "contexts/FavoritesContext";
 
 export default function Favorites() {
+  const { favorite } = useFavoritesContext();
+
   return (
     <>
       <Banner imagem="favoritos" />
@@ -15,13 +16,8 @@ export default function Favorites() {
         <h1>Meus favoritos!</h1>
       </Title>
       <section className={styles.container}>
-        {videos.map((video) => (
-          <Card
-            key={video.id}
-            id={video.id}
-            title={video.title}
-            thumb={video.thumb}
-          />
+        {favorite.map((fav) => (
+          <Card key={fav.id} id={fav.id} title={fav.title} thumb={fav.thumb} />
         ))}
       </section>
     </>

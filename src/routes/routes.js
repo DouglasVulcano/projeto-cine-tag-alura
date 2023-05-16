@@ -5,6 +5,7 @@ import React from "react";
 import Home from "../pages/Home";
 import Favorites from "pages/Favorites";
 import NotFound from "pages/NotFound";
+import Player from "pages/Player";
 
 // layouts
 import MainLayout from "layouts/MainLayout";
@@ -20,6 +21,7 @@ export default function Router() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/:id" element={<Player />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </FavoritesProvider>
